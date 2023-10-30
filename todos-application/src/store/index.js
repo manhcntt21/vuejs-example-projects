@@ -1,7 +1,7 @@
 import {createStore} from "vuex";
-import rootGetters from './getters'
-import rootMutations from './mutations'
-import rootActions from './actions'
+import rootGetters from './getters.js'
+import rootMutations from './mutations.js'
+import rootActions from './actions.js'
 
 const store = createStore({
     state() {
@@ -9,11 +9,13 @@ const store = createStore({
             todos: [{ id: 'first-element', name: 'My First To Do Item', completed: false, location: 'home' }]
         }
     },
-    rootGetters,
-    rootMutations,
-    rootActions,
+    getters: rootGetters,
+    mutations: rootMutations,
+    actions: rootActions,
 })
-
+/**
+ * run before every mutation method
+ */
 store.subscribe((mutation, state) => {
     localStorage.setItem('store', JSON.stringify(state))
 })
