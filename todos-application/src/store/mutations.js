@@ -43,5 +43,17 @@ export default {
         } else {
             console.log(`Todo List Item ${id} couldn't be found'`)
         }
+    },
+    /**
+     * load from local storage
+     */
+    loadStore() {
+        if(localStorage.getItem('store')) {
+            try {
+                this.replaceState(JSON.parse(localStorage.getItem('store')))
+            } catch (e) {
+                console.log('Could not initialize store', e)
+            }
+        }
     }
 };
