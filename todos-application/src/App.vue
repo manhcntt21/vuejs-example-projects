@@ -1,84 +1,76 @@
+<template>
+  <div id="nav">
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
+    <router-link to="/archive">Archive</router-link>
+  </div>
+  <router-view></router-view>
+</template>
+
 <script setup>
-import { useStore } from 'vuex'
+import {useStore} from 'vuex'
 
 const store = useStore()
 store.commit('loadStore')
 </script>
 
-<template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/archive">Archive</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+#app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 2rem;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+h1 {
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 3rem 0 2rem 0;
 }
 
-nav {
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 1rem 0 0;
+  background: #eee;
+  border-radius: 14px;
+  text-decoration: none;
+  padding: 0.25rem 0.75rem;
+}
+
+#nav a.router-link-exact-active {
+  color: #0428ff;
+}
+
+input[type="submit"] {
+  background: #0028ff;
+  color: white;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 0 5px 10px #0428ff7a;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin: 0 0.5rem 0 0;
+}
+
+input[type="submit"]:hover {
+  background: #3600ff;
+  box-shadow: 0 3px 7px #0428ff7a;
+}
+
+input {
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  font-size: 1rem;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+  padding: 0.5rem 1rem;
 }
 </style>

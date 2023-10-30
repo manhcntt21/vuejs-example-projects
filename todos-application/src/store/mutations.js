@@ -37,7 +37,7 @@ export default {
     moveTodoItem(state, todoItem) {
         let id = todoItem.id
         let location =  todoItem.location
-        let findEl = state.todos.findIndex(x => x.id == id)
+        let findEl = state.todos.find(x => x.id == id)
         if(findEl) {
             findEl.location = location
         } else {

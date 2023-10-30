@@ -1,10 +1,12 @@
 <template>
-  <slot></slot>
+  <todo-list location="archive"></todo-list>
 </template>
 
 <script>
+import TodoList from "../components/TodoList.vue";
 export default {
-  name: "ArchivePage"
+  name: "ArchivePage",
+  components: {TodoList}
 }
 </script>
 
